@@ -1,14 +1,8 @@
-import { Button, Divider, InputNumber, Flex, List } from "antd";
+import { Button, Divider, List } from "antd";
 import Link from "antd/es/typography/Link";
 import Typography from "antd/es/typography/Typography";
-import { useState, useMemo, useEffect } from "react";
 
 const { Text } = Typography;
-
-const buttonStyle = {
-	marginBottom: 10,
-	width: 100,
-};
 
 const data = [
 	"Когда нужно мемоизировать результаты дорогостоящих вычислений.",
@@ -19,7 +13,7 @@ export default function UseMemoTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Хук <Text code>useMemo()</Text> — это хук в React, который
 				возвращает мемоизированное значение, т.е. значение, которое
 				будет пересчитываться только тогда, когда изменяются его
@@ -31,6 +25,15 @@ export default function UseMemoTheory() {
 				href="https://my-js.org/docs/cheatsheet/react-hooks/#usememo"
 			>
 				<Button type="primary">Дополнительно</Button>
+			</Link>
+			<Divider />
+			<Link
+				target="_blanks"
+				href="https://stackoverflow.com/questions/55952847/usecallback-vs-usememo-and-when-to-use-them"
+			>
+				<Button type="primary">
+					Разность между useCallback и useMemo
+				</Button>
 			</Link>
 			<Divider />
 			<Typography.Title level={3}>Когда использовать</Typography.Title>

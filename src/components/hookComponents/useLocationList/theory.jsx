@@ -44,7 +44,7 @@ export default function UseLocationTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				<Text code>useLocation</Text> возвращает объект, представляющий
 				текущий URL. Этот объект содержит информацию о текущем пути,
 				строке запроса и других свойствах. Хук useLocation возвращает

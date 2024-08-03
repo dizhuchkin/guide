@@ -1,14 +1,8 @@
-import { Button, Divider, InputNumber, Flex, List } from "antd";
+import { Button, Divider, List } from "antd";
 import Link from "antd/es/typography/Link";
 import Typography from "antd/es/typography/Typography";
-import { useReducer } from "react";
 
 const { Text } = Typography;
-
-const buttonStyle = {
-	width: 100,
-	marginBottom: 5,
-};
 
 const data = [
 	"Когда нужно управлять сложным состоянием с несколькими значениями.",
@@ -19,8 +13,8 @@ export default function UseReducerTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
-				Хук <Text code>useReducer()</Text>, как и хук{" "}
+			<Typography.Paragraph style={{ textAlign: "left" }}>
+				Хук <Text code>useReducer()</Text>, как и хук
 				<Text code>useState()</Text>, предназначен для управления
 				состоянием. Он используется при наличии сложной логики
 				управления состоянием или когда следующее состояние зависит от

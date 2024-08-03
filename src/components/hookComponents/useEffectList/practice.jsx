@@ -1,6 +1,15 @@
 import Typography from "antd/es/typography/Typography";
-import { Button, InputNumber, Flex} from "antd";
+import { Button, InputNumber, Flex, Space } from "antd";
 import { useState, useEffect } from "react";
+
+const codeStyle = {
+	textAlign: "left",
+	minWidth: "150px",
+	backgroundColor: "#f4f4f4",
+	border: "1px solid #ccc",
+	borderRadius: "5px",
+	padding: "10px",
+};
 
 export default function UseEffectPractice() {
 	const [count, setCount] = useState(0);
@@ -16,20 +25,14 @@ export default function UseEffectPractice() {
 		console.log("first render");
 	}, []);
 
-	const handler = () => {
-		console.log("Случился клик!");
-	};
-
 	// Зависит от элементов
 	useEffect(() => {
 		console.log(`Запуск эффекта`);
-		window.addEventListener("click", handler);
 
 		return () => {
 			console.log(`Очистка эффекта`);
-			window.removeEventListener("click", handler);
 		};
-	}, [handler]);
+	}, [count]);
 
 	return (
 		<>
@@ -48,6 +51,26 @@ export default function UseEffectPractice() {
 					Count++
 				</Button>
 			</Flex>
+			<Typography.Title level={3}>Код</Typography.Title>
+			<Space style={{ marginBottom: 10 }} direction="vertical">
+				<pre style={codeStyle}>{`
+// Срабатывает при первом рендере
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+	console.log("first render");
+}, []);
+
+// Зависит от элементов
+useEffect(() => {
+	console.log('Запуск эффекта');
+
+	return () => {
+		console.log('Очистка эффекта');
+	};
+}, [count]);
+	`}</pre>
+			</Space>
 		</>
 	);
 }

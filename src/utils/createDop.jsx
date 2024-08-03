@@ -1,4 +1,4 @@
-import { Divider, Flex, Button, List } from "antd";
+import { Divider, Flex, Button } from "antd";
 import Link from "antd/es/typography/Link";
 import {
 	customHooksData,
@@ -190,6 +190,8 @@ export default function createContentDop(params) {
 			break;
 		case "web":
 			data.content = createQuestion("web");
+			break;
+		default:
 			break;
 	}
 

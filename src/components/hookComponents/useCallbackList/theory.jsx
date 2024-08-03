@@ -15,7 +15,7 @@ export default function UseCallbackTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Хук <Text code>useCallback()</Text> возвращает мемоизированную
 				версию переданной функции обратного вызова. Данный хук принимает
 				колбек и массив зависимостей. колбек повторно вычисляется только

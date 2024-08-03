@@ -49,7 +49,7 @@ export default function UseNavigateTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				<Text code>useNavigate</Text> используется для программной
 				навигации между страницами в вашем приложении. Он возвращает
 				функцию, которая позволяет вам перемещаться к другим маршрутам,

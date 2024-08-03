@@ -13,7 +13,7 @@ export default function UseStateTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Хук <Text code>useState()</Text> предназначен для управления
 				состоянием компонента. Данная функция возвращает пару
 				геттер/сеттер - значение начального состояния и функцию для

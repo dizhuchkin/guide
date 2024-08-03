@@ -1,7 +1,16 @@
-import { Button, InputNumber, Flex } from "antd";
+import { Button, InputNumber, Flex, Space } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState, useCallback, useEffect } from "react";
 import React from "react";
+
+const codeStyle = {
+	textAlign: "left",
+	minWidth: "150px",
+	backgroundColor: "#f4f4f4",
+	border: "1px solid #ccc",
+	borderRadius: "5px",
+	padding: "10px",
+};
 
 const ChildA = React.memo(({ state1, handleClickA }) => {
 	useEffect(() => {
@@ -66,6 +75,24 @@ export default function UseCallbackPractice() {
 				React.memo позволяет перерисовывать компонет только тогда, когда
 				изменяются props
 			</Typography.Paragraph>
+			<Typography.Title level={3}>Код</Typography.Title>
+			<Space style={{ marginBottom: 10 }} direction="vertical">
+				<pre style={codeStyle}>{`
+const handleClickA = useCallback(() => {
+	console.log('Clicked A with state1: ${"state1"}');
+	setState1(state1 + 1);
+}, [state1]);
+
+const handleClickB = useCallback(() => {
+	console.log('Clicked B with state2: ${"state2"}');
+	setState2(state2 + 1);
+}, [state2]);
+------------------------------------
+<ChildA state1={state1} handleClickA={handleClickA} />
+<br />
+<ChildB state2={state2} handleClickB={handleClickB} />
+	`}</pre>
+			</Space>
 		</>
 	);
 }

@@ -14,7 +14,7 @@ export default function UseParamsTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Данный хук возвращает объект с параметрами URL в формате
 				<Text code>ключ: значение</Text>. Используется для доступа к
 				<Text code>match.params</Text> текущего

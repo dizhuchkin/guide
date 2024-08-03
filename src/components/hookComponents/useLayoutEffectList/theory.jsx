@@ -14,7 +14,7 @@ export default function UseLayoutEffectTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Хук <Text code>useLayoutEffect()</Text> похож на хук{" "}
 				<Text code>useEffect()</Text>, за исключением того, что он
 				запускает эффект перед отрисовкой компонента. Данный хук

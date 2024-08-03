@@ -31,7 +31,7 @@ export default function UseRefTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Хук <Text code>useRef()</Text> возвращает объект, свойство
 				current которого содержит ссылку на узел DOM. Данный хук также
 				может использоваться для сохранения любого мутирующего значения.
@@ -54,13 +54,13 @@ export default function UseRefTheory() {
 				)}
 			/>
 			<br />
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				useRef возвращает изменяемый ref объект, в котором значение
 				“current” устанавливается переданным аргументом при
 				инициализации (initialValue). Возвращенный объект будет сохранен
 				на протяжении всей жизни компонента.
 			</Typography.Paragraph>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Когда вы сравнивает обычный объект с самим собой в useEffect, то
 				после перерисовки они не совпадают, и это запускает срабатывание
 				useEffect, с useRef такого не происходит (если он не изменился,

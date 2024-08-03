@@ -13,7 +13,7 @@ export default function UseContextTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Хук <Text code>useContext()</Text> предназначен для прямой
 				передачи пропов компонентам, находящимся на любом уровне
 				вложенности. Он позволяет избежать так называемого "бурения

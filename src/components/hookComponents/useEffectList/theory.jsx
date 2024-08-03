@@ -19,7 +19,7 @@ export default function UseEffectTheory() {
 	return (
 		<>
 			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				<Text code>Хук useEffect()</Text> предназначен для запуска
 				побочных эффектов (например, выполнение сетевого запроса или
 				добавление обработчика событий) после монтирования и отрисовки
@@ -34,7 +34,7 @@ export default function UseEffectTheory() {
 				renderItem={(item) => <List.Item>{item}</List.Item>}
 			/>
 			<br />
-			<Typography.Paragraph>
+			<Typography.Paragraph style={{ textAlign: "left" }}>
 				Внутри useEffect всегда можно вернуть функцию очистки, которая
 				используется для удаления нежелательного поведения.
 			</Typography.Paragraph>

@@ -1,6 +1,15 @@
-import { Button, Form, Input, theme } from "antd";
+import { Button, Form, Input, theme, Space } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useNavigate } from "react-router-dom";
+
+const codeStyle = {
+	textAlign: "left",
+	minWidth: "150px",
+	backgroundColor: "#f4f4f4",
+	border: "1px solid #ccc",
+	borderRadius: "5px",
+	padding: "10px",
+};
 
 export default function UseParamsPractice() {
 	const { token } = theme.useToken();
@@ -80,6 +89,27 @@ export default function UseParamsPractice() {
 					</Button>
 				</Form.Item>
 			</Form>
+			<Typography.Title level={3}>Код</Typography.Title>
+			<Space style={{ marginBottom: 10 }} direction="vertical">
+				<pre style={codeStyle}>{`
+function onFinish(values) {
+	navigate('/${"values.userid"}/${"values.postid"}');
+}
+----------------------------
+const { idUser, idPost } = useParams();
+
+<InputNumber
+	disabled
+	value={idUser}
+	style={{ width: "200px", marginRight: "20px" }}
+/>
+<InputNumber
+	disabled
+	value={idPost}
+	style={{ width: "200px", marginRight: "20px" }}
+/>
+	`}</pre>
+			</Space>
 		</>
 	);
 }

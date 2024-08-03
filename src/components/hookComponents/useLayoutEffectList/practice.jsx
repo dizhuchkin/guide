@@ -5,6 +5,7 @@ export default function UseLayoutEffectPractice() {
 	return (
 		<>
 			<Typography.Title level={3}>Пример</Typography.Title>
+
 			<Flex
 				style={{ width: 200, margin: "auto" }}
 				align="center"
