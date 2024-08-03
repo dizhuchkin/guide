@@ -1,6 +1,12 @@
 import { useSelector } from "react-redux";
-import { Flex, Button, List, Card } from "antd";
+import { Flex, Button, List, Card, Image } from "antd";
 import { useNavigate } from "react-router-dom";
+import codewars from "../../data/photo/codewars48.png";
+import stepic from "../../data/photo/stepic48.png";
+import yandex from "../../data/photo/yandex48.png";
+import html from "../../data/photo/html48.png";
+import js from "../../data/photo/js48.png";
+import Link from "antd/es/typography/Link";
 
 /*
 gutter: Задает отступ (в пикселях) между элементами списка.
@@ -11,6 +17,34 @@ lg: Определяет количество колонок, когда шир�
 xl: Определяет количество колонок, когда ширина экрана соответствует очень большим устройствам (размер XL, обычно 1200-1599 пикселей).
 xxl: Определяет количество колонок, когда ширина экрана соответствует экстрабольшим устройствам (размер XXL, обычно более 1600 пикселей).
 */
+
+const linksIcon = [
+	{
+		key: 1,
+		link: "https://www.codewars.com/",
+		icon: codewars,
+	},
+	{
+		key: 2,
+		link: "https://stepik.org/catalog",
+		icon: stepic,
+	},
+	{
+		key: 3,
+		link: "https://coderun.yandex.ru/",
+		icon: yandex,
+	},
+	{
+		key: 4,
+		link: "https://webref.ru/practice",
+		icon: html,
+	},
+	{
+		key: 5,
+		link: "https://my-js.netlify.app/docs/other/snippets-js/",
+		icon: js,
+	},
+];
 
 export default function MainContent() {
 	const listTopic = useSelector((state) => state.topic.topic);
@@ -68,6 +102,18 @@ export default function MainContent() {
 								{i.label}
 							</Button>
 						))}
+				</Flex>
+			),
+		},
+		{
+			title: "Ссылки",
+			description: (
+				<Flex wrap gap="small">
+					{linksIcon.map((i) => (
+						<Link key={i.key} target="_blank" href={i.link}>
+							<Image preview={false} src={i.icon} />
+						</Link>
+					))}
 				</Flex>
 			),
 		},
