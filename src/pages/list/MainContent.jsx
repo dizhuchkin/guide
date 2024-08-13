@@ -6,8 +6,8 @@ import stepic from "../../data/photo/stepic48.png";
 import yandex from "../../data/photo/yandex48.png";
 import html from "../../data/photo/html48.png";
 import js from "../../data/photo/js48.png";
+import solvit from "../../data/photo/solvit48.png";
 import Link from "antd/es/typography/Link";
-
 /*
 gutter: Задает отступ (в пикселях) между элементами списка.
 xs: Определяет количество колонок, когда ширина экрана соответствует маленьким устройствам (размер XS, обычно менее 576 пикселей).
@@ -43,6 +43,11 @@ const linksIcon = [
 		key: 5,
 		link: "https://my-js.netlify.app/docs/other/snippets-js/",
 		icon: js,
+	},
+	{
+		key: 6,
+		link: "https://solvit.space/",
+		icon: solvit,
 	},
 ];
 
