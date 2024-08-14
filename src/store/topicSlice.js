@@ -104,6 +104,11 @@ const topicSlice = createSlice({
 				label: "web",
 				name: "WEB",
 			},
+			{
+				key: 21,
+				label: "git",
+				name: "GIT",
+			},
 		],
 	},
 });

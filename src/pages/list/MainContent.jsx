@@ -8,6 +8,7 @@ import html from "../../data/photo/html48.png";
 import js from "../../data/photo/js48.png";
 import solvit from "../../data/photo/solvit48.png";
 import Link from "antd/es/typography/Link";
+
 /*
 gutter: Задает отступ (в пикселях) между элементами списка.
 xs: Определяет количество колонок, когда ширина экрана соответствует маленьким устройствам (размер XS, обычно менее 576 пикселей).

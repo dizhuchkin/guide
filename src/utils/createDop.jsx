@@ -109,7 +109,6 @@ function createPracticesList() {
 		};
 	});
 }
-
 function creatLibrariesList() {
 	return librariesData.map((item) => {
 		return {
@@ -190,6 +189,9 @@ export default function createContentDop(params) {
 			break;
 		case "web":
 			data.content = createQuestion("web");
+			break;
+		case "git":
+			data.content = createQuestion("git");
 			break;
 		default:
 			break;
