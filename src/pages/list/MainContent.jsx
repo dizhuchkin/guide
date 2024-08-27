@@ -7,6 +7,7 @@ import yandex from "../../data/photo/yandex48.png";
 import html from "../../data/photo/html48.png";
 import js from "../../data/photo/js48.png";
 import solvit from "../../data/photo/solvit48.png";
+import devStation from "../../data/photo/devStation48.png";
 import Link from "antd/es/typography/Link";
 
 /*
@@ -49,6 +50,11 @@ const linksIcon = [
 		key: 6,
 		link: "https://solvit.space/",
 		icon: solvit,
+	},
+	{
+		key: 7,
+		link: "https://dev-station.ru/simulator/js",
+		icon: devStation,
 	},
 ];
 

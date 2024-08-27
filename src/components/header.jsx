@@ -27,6 +27,11 @@ export default function AppHeader() {
 						TypeScript
 					</Button>
 				</Link>
+				<Link target="_blank" href="https://chatgpt.com/">
+					<Button shape="round" size="large">
+						ChatGPT
+					</Button>
+				</Link>
 			</Flex>
 		</Header>
 	);
