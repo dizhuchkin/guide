@@ -118,7 +118,7 @@ export default function MainContent() {
 			),
 		},
 		{
-			title: "Ссылки",
+			title: "Практика",
 			description: (
 				<Flex wrap gap="small">
 					{linksIcon.map((i) => (

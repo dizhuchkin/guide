@@ -1,38 +1,53 @@
 import { Header } from "antd/es/layout/layout";
-import { Button, Flex } from "antd";
+import { Flex, Image, Modal, Button } from "antd";
+import { useState } from "react";
 import Link from "antd/es/typography/Link";
+import jsIcon from "../data/photo/js48.png";
+import chatGPTIcon from "../data/photo/chatgpth48.png";
 
 const headerStyle = {
 	height: 64,
 	padding: "0 24px",
-	display: "flex",
-	justifyContent: "space-between",
-	alignItems: "center",
+	background: "#6aa2f0",
 };
 
 export default function AppHeader() {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const showModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const handleCancel = () => {
+		setIsModalOpen(false);
+	};
+
 	return (
 		<Header style={headerStyle}>
-			<Flex gap="small">
-				<Link target="_blank" href="https://learn.javascript.ru/">
-					<Button shape="round" size="large">
-						JavaScript
-					</Button>
-				</Link>
-				<Link
-					target="_blank"
-					href="https://code.mu/ru/javascript/typescript/book/prime/"
-				>
-					<Button shape="round" size="large">
-						TypeScript
-					</Button>
-				</Link>
+			<Flex align="center" wrap gap="small">
+				<Image onClick={showModal} preview={false} src={jsIcon} />
+
 				<Link target="_blank" href="https://chatgpt.com/">
-					<Button shape="round" size="large">
-						ChatGPT
-					</Button>
+					<Image preview={false} src={chatGPTIcon} />
 				</Link>
 			</Flex>
+			<Modal
+				title="JavaScript"
+				open={isModalOpen}
+				onCancel={handleCancel}
+				footer={
+					<Button type="primary" onClick={handleCancel}>
+						Закрыть
+					</Button>
+				}
+			>
+				<Link target="_blank" href="https://learn.javascript.ru/">
+					<p>Справочник</p>
+				</Link>
+				<Link target="_blank" href="https://ck-editor.vercel.app/">
+					<p>JS Online</p>
+				</Link>
+			</Modal>
 		</Header>
 	);
 }
