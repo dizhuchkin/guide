@@ -8,7 +8,7 @@ import chatGPTIcon from "../data/photo/chatgpth48.png";
 const headerStyle = {
 	height: 64,
 	padding: "0 24px",
-	background: "#6aa2f0",
+	background: "#1677ff",
 };
 
 export default function AppHeader() {
