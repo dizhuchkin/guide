@@ -22,7 +22,7 @@ export default function UseNavigatePractice() {
 		<>
 			<Typography.Title level={3}>Пример (/useState)</Typography.Title>
 			<Button onClick={goToAboutPage} type="primary">
-				Переход к странице About
+				Переход к странице useState
 			</Button>
 			<Typography.Title level={3}>Код</Typography.Title>
 			<Space style={{ marginBottom: 10 }} direction="vertical">
