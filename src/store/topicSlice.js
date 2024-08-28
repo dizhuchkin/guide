@@ -75,11 +75,6 @@ const topicSlice = createSlice({
 				name: "Дополнительные хуки",
 			},
 			{
-				key: 15,
-				label: "typescript",
-				name: "TypeScript",
-			},
-			{
 				key: 16,
 				label: "html",
 				name: "HTML",

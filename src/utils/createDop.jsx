@@ -1,4 +1,4 @@
-import { Divider, Flex, Button } from "antd";
+import { Flex, Button } from "antd";
 import Link from "antd/es/typography/Link";
 import {
 	customHooksData,
@@ -6,7 +6,6 @@ import {
 	librariesData,
 	practicesData,
 	questionData,
-	typescriptData,
 } from "../data";
 import Typography from "antd/es/typography/Typography";
 
@@ -21,32 +20,6 @@ const codeStyle = {
 	padding: "10px",
 	textWrap: "wrap",
 };
-
-function createTypescriptList() {
-	return typescriptData.map((item) => {
-		return {
-			key: item.key,
-			label: item.label,
-			children: (
-				<>
-					<Flex key={item.key} vertical align="flex-start">
-						<Link target="_blanks" href={item.href}>
-							<Button>Теория и практика</Button>
-						</Link>
-					</Flex>
-					<Divider />
-					<Flex vertical align="center">
-						<Text style={{ marginBottom: 10, fontSize: 20 }}>
-							Примеры кода:
-						</Text>
-
-						<pre style={codeStyle}>{item.code}</pre>
-					</Flex>
-				</>
-			),
-		};
-	});
-}
 
 function createCustomHooksList() {
 	return customHooksData.map((item) => {
@@ -162,9 +135,6 @@ export default function createContentDop(params) {
 			break;
 		case "hooks":
 			data.content = createCustomHooksList();
-			break;
-		case "typescript":
-			data.content = createTypescriptList();
 			break;
 		case "html":
 			data.content = createQuestion("html");

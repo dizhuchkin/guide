@@ -42,7 +42,13 @@ export default function AppHeader() {
 				}
 			>
 				<Link target="_blank" href="https://learn.javascript.ru/">
-					<p>Справочник</p>
+					<p>Справочник JS</p>
+				</Link>
+				<Link
+					target="_blank"
+					href="https://race-timo.gitbook.io/typescript"
+				>
+					<p>Справочник TS</p>
 				</Link>
 				<Link target="_blank" href="https://ck-editor.vercel.app/">
 					<p>JS Online</p>
