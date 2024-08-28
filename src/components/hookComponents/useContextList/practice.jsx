@@ -1,4 +1,4 @@
-import { Button, Space } from "antd";
+import { Button } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState } from "react";
 import { createContext, useContext } from "react";
@@ -10,6 +10,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 export default function UseContextPractice() {
@@ -60,8 +61,8 @@ export default function UseContextPractice() {
 				<Child />
 			</StoreContext1.Provider>
 			<Typography.Title level={3}>Код</Typography.Title>
-			<Space style={{ marginBottom: 10 }} direction="vertical">
-				<pre style={codeStyle}>{`
+
+			<pre style={codeStyle}>{`
 const StoreContext1 = createContext();
 
 const [data, setData] = useState({
@@ -92,7 +93,6 @@ const Child = () => {
 	<Child />
 </StoreContext1.Provider>
 	`}</pre>
-			</Space>
 		</>
 	);
 }

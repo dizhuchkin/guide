@@ -1,4 +1,4 @@
-import { List, Space } from "antd";
+import { List } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useLocation } from "react-router-dom";
 
@@ -9,6 +9,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 export default function UseLocationPractice() {
@@ -55,8 +56,8 @@ export default function UseLocationPractice() {
 				)}
 			/>
 			<Typography.Title level={3}>Код</Typography.Title>
-			<Space style={{ marginBottom: 10 }} direction="vertical">
-				<pre style={codeStyle}>{`
+
+			<pre style={codeStyle}>{`
 const loc = useLocation();
 const infoLocation = [
 	{
@@ -96,7 +97,6 @@ const infoLocation = [
 	)}
 />
 	`}</pre>
-			</Space>
 		</>
 	);
 }

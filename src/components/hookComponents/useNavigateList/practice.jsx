@@ -1,4 +1,4 @@
-import { Button, Space } from "antd";
+import { Button } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 export default function UseNavigatePractice() {
@@ -25,8 +26,8 @@ export default function UseNavigatePractice() {
 				Переход к странице useState
 			</Button>
 			<Typography.Title level={3}>Код</Typography.Title>
-			<Space style={{ marginBottom: 10 }} direction="vertical">
-				<pre style={codeStyle}>{`
+
+			<pre style={codeStyle}>{`
 const navigate = useNavigate();
 
 const goToAboutPage = () => {
@@ -37,7 +38,6 @@ const goToAboutPage = () => {
 	Переход к странице About
 </Button>
 	`}</pre>
-			</Space>
 		</>
 	);
 }

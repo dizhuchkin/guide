@@ -1,4 +1,4 @@
-import { Button, InputNumber, Flex, Space } from "antd";
+import { Button, InputNumber, Flex } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useReducer } from "react";
 
@@ -14,6 +14,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 export default function UseReducerPractice() {
@@ -68,8 +69,8 @@ export default function UseReducerPractice() {
 				</Button>
 			</Flex>
 			<Typography.Title level={3}>Код</Typography.Title>
-			<Space style={{ marginBottom: 10 }} direction="vertical">
-				<pre style={codeStyle}>{`
+
+			<pre style={codeStyle}>{`
 //Пример с счётчиком
 const initialState = 0;
 const reducer = (state, action) => {
@@ -107,7 +108,6 @@ const [count, dispatch] = useReducer(reducer, initialState);
 	Count--
 </Button>
 	`}</pre>
-			</Space>
 		</>
 	);
 }

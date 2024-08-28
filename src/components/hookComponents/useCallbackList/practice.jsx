@@ -1,4 +1,4 @@
-import { Button, InputNumber, Flex, Space } from "antd";
+import { Button, InputNumber, Flex } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState, useCallback, useEffect } from "react";
 import React from "react";
@@ -10,6 +10,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 const ChildA = React.memo(({ state1, handleClickA }) => {
@@ -76,8 +77,8 @@ export default function UseCallbackPractice() {
 				изменяются props
 			</Typography.Paragraph>
 			<Typography.Title level={3}>Код</Typography.Title>
-			<Space style={{ marginBottom: 10 }} direction="vertical">
-				<pre style={codeStyle}>{`
+
+			<pre style={codeStyle}>{`
 const handleClickA = useCallback(() => {
 	console.log('Clicked A with state1: ${"state1"}');
 	setState1(state1 + 1);
@@ -92,7 +93,6 @@ const handleClickB = useCallback(() => {
 <br />
 <ChildB state2={state2} handleClickB={handleClickB} />
 	`}</pre>
-			</Space>
 		</>
 	);
 }

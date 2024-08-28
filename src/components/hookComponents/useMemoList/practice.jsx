@@ -1,4 +1,4 @@
-import { Button, InputNumber, Flex, Space } from "antd";
+import { Button, InputNumber, Flex } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState, useMemo, useEffect } from "react";
 
@@ -14,6 +14,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 function factorialOf(n) {
@@ -70,8 +71,8 @@ export default function UseMemoPractice() {
 				</Button>
 			</Flex>
 			<Typography.Title level={3}>Код</Typography.Title>
-			<Space style={{ marginBottom: 10 }} direction="vertical">
-				<pre style={codeStyle}>{`
+
+			<pre style={codeStyle}>{`
 function factorialOf(n) {
 	console.log("factorialOf(n) called!");
 	return n <= 0 ? 1 : n * factorialOf(n - 1);
@@ -101,7 +102,6 @@ useEffect(() => {
 	Count++
 </Button>
 	`}</pre>
-			</Space>
 		</>
 	);
 }

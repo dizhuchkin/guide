@@ -9,7 +9,6 @@ import {
 	typescriptData,
 } from "../data";
 import Typography from "antd/es/typography/Typography";
-import { Space } from "antd";
 
 const { Text } = Typography;
 
@@ -20,6 +19,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 function createTypescriptList() {
@@ -39,12 +39,8 @@ function createTypescriptList() {
 						<Text style={{ marginBottom: 10, fontSize: 20 }}>
 							Примеры кода:
 						</Text>
-						<Space
-							style={{ marginBottom: 10 }}
-							direction="vertical"
-						>
-							<pre style={codeStyle}>{item.code}</pre>
-						</Space>
+
+						<pre style={codeStyle}>{item.code}</pre>
 					</Flex>
 				</>
 			),
@@ -69,12 +65,7 @@ function createCustomHooksList() {
 								</Typography.Paragraph>
 							)}
 							{itemDest.type === "code" && (
-								<Space
-									style={{ marginBottom: 10 }}
-									direction="vertical"
-								>
-									<pre style={codeStyle}>{itemDest.text}</pre>
-								</Space>
+								<pre style={codeStyle}>{itemDest.text}</pre>
 							)}
 						</div>
 					))}
@@ -94,7 +85,7 @@ function createPracticesList() {
 					<Typography.Paragraph style={{ textAlign: "left" }}>
 						{item.description.text}
 					</Typography.Paragraph>
-					<Space style={{ marginBottom: 10 }} direction="vertical">
+					<Flex vertical>
 						<Text strong type="danger">
 							Плохо
 						</Text>
@@ -103,7 +94,7 @@ function createPracticesList() {
 							Хорошо
 						</Text>
 						<pre style={codeStyle}>{item.description.good}</pre>
-					</Space>
+					</Flex>
 				</>
 			),
 		};

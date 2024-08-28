@@ -1,4 +1,4 @@
-import { Button, Form, Input, theme, Space } from "antd";
+import { Button, Form, Input, theme } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,7 @@ const codeStyle = {
 	border: "1px solid #ccc",
 	borderRadius: "5px",
 	padding: "10px",
+	textWrap: "wrap",
 };
 
 export default function UseParamsPractice() {
@@ -90,8 +91,8 @@ export default function UseParamsPractice() {
 				</Form.Item>
 			</Form>
 			<Typography.Title level={3}>Код</Typography.Title>
-			<Space style={{ marginBottom: 10 }} direction="vertical">
-				<pre style={codeStyle}>{`
+
+			<pre style={codeStyle}>{`
 function onFinish(values) {
 	navigate('/${"values.userid"}/${"values.postid"}');
 }
@@ -109,7 +110,6 @@ const { idUser, idPost } = useParams();
 	style={{ width: "200px", marginRight: "20px" }}
 />
 	`}</pre>
-			</Space>
 		</>
 	);
 }
