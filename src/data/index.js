@@ -1,3 +1,11 @@
+import codewars from "./photo/codewars48.png";
+import stepic from "./photo/stepic48.png";
+import yandex from "./photo/yandex48.png";
+import html from "./photo/html48.png";
+import js from "./photo/js48.png";
+import solvit from "./photo/solvit48.png";
+import devStation from "./photo/devStation48.png";
+
 export const customHooksData = [
 	{
 		key: "1",
@@ -1472,34 +1480,6 @@ export const librariesData = [
 	},
 ];
 
-export const hrefData = new Map([
-	[
-		"practices",
-		"https://it-dev-journal.ru/articles/20-sovetov-dlya-uluchsheniya-kachestva-koda-v-react-proekte",
-	],
-	["libraries", "https://prismic.io/blog/react-component-libraries"],
-	[
-		"hooks",
-		"https://proglib.io/p/15-kastomnyh-hukov-dlya-oblegcheniya-komponentov-react-2021-08-11",
-	],
-	["typescript", "https://code.mu/ru/javascript/typescript/book/prime/"],
-	["html", "https://altyncev.ru/blog/2017-11-16-csslover-job-interview/"],
-	[
-		"css",
-		"https://career.guru99.com/ru/top-50-csscascading-style-sheet-interview-questions/",
-	],
-	[
-		"js",
-		"https://proglib.io/p/voprosy-dlya-podgotovki-k-sobesedovaniyu-po-javascript-chast-1-2023-12-18",
-	],
-	[
-		"react",
-		"https://proglib.io/p/45-voprosov-dlya-podgotovki-k-sobesedovaniyu-po-react-2023-11-27",
-	],
-	["web", "https://habr.com/ru/companies/mbaconsult/articles/294492/"],
-	["git", "https://hackr.io/blog/git-interview-questions"],
-]);
-
 export const questionData = new Map([
 	[
 		"html",
@@ -2713,3 +2693,69 @@ export const questionData = new Map([
 		],
 	],
 ]);
+
+export const hrefData = new Map([
+	[
+		"practices",
+		"https://it-dev-journal.ru/articles/20-sovetov-dlya-uluchsheniya-kachestva-koda-v-react-proekte",
+	],
+	["libraries", "https://prismic.io/blog/react-component-libraries"],
+	[
+		"hooks",
+		"https://proglib.io/p/15-kastomnyh-hukov-dlya-oblegcheniya-komponentov-react-2021-08-11",
+	],
+	["typescript", "https://code.mu/ru/javascript/typescript/book/prime/"],
+	["html", "https://altyncev.ru/blog/2017-11-16-csslover-job-interview/"],
+	[
+		"css",
+		"https://career.guru99.com/ru/top-50-csscascading-style-sheet-interview-questions/",
+	],
+	[
+		"js",
+		"https://proglib.io/p/voprosy-dlya-podgotovki-k-sobesedovaniyu-po-javascript-chast-1-2023-12-18",
+	],
+	[
+		"react",
+		"https://proglib.io/p/45-voprosov-dlya-podgotovki-k-sobesedovaniyu-po-react-2023-11-27",
+	],
+	["web", "https://habr.com/ru/companies/mbaconsult/articles/294492/"],
+	["git", "https://hackr.io/blog/git-interview-questions"],
+]);
+
+export const linksData = [
+	{
+		key: 1,
+		link: "https://www.codewars.com/",
+		icon: codewars,
+	},
+	{
+		key: 2,
+		link: "https://stepik.org/catalog",
+		icon: stepic,
+	},
+	{
+		key: 3,
+		link: "https://coderun.yandex.ru/",
+		icon: yandex,
+	},
+	{
+		key: 4,
+		link: "https://webref.ru/practice",
+		icon: html,
+	},
+	{
+		key: 5,
+		link: "https://my-js.netlify.app/docs/other/snippets-js/",
+		icon: js,
+	},
+	{
+		key: 6,
+		link: "https://solvit.space/",
+		icon: solvit,
+	},
+	{
+		key: 7,
+		link: "https://dev-station.ru/simulator/js",
+		icon: devStation,
+	},
+];

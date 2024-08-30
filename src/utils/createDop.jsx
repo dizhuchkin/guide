@@ -126,36 +126,24 @@ export default function createContentDop(params) {
 		content: null,
 	};
 
-	switch (params) {
-		case "practices":
-			data.content = createPracticesList();
-			break;
-		case "libraries":
-			data.content = creatLibrariesList();
-			break;
-		case "hooks":
-			data.content = createCustomHooksList();
-			break;
-		case "html":
-			data.content = createQuestion("html");
-			break;
-		case "css":
-			data.content = createQuestion("css");
-			break;
-		case "js":
-			data.content = createQuestion("js");
-			break;
-		case "react":
-			data.content = createQuestion("react");
-			break;
-		case "web":
-			data.content = createQuestion("web");
-			break;
-		case "git":
-			data.content = createQuestion("git");
-			break;
-		default:
-			break;
+	const questionTopic = ["html", "css", "js", "react", "web", "git"];
+
+	if (questionTopic.includes(params)) {
+		data.content = createQuestion(params);
+	} else {
+		switch (params) {
+			case "practices":
+				data.content = createPracticesList();
+				break;
+			case "libraries":
+				data.content = creatLibrariesList();
+				break;
+			case "hooks":
+				data.content = createCustomHooksList();
+				break;
+			default:
+				break;
+		}
 	}
 
 	return data;

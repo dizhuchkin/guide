@@ -20,8 +20,9 @@ import UseRefPractice from "../components/hookComponents/useRefList/practice";
 import UseRefTheory from "../components/hookComponents/useRefList/theory";
 import UseStatePractice from "../components/hookComponents/useStateList/practice";
 import UseStateTheory from "../components/hookComponents/useStateList/theory";
+import ErrorContent from "../pages/ErrorContent";
 
-export function CreateContentHookTheory({ params: params }) {
+export function CreateContentHookTheory({ params }) {
 	switch (params) {
 		case "useState":
 			return (
@@ -89,10 +90,16 @@ export function CreateContentHookTheory({ params: params }) {
 					<UseParamsTheory />
 				</>
 			);
+		default:
+			return (
+				<>
+					<ErrorContent />
+				</>
+			);
 	}
 }
 
-export function CreateContentHookPractice({ params: params }) {
+export function CreateContentHookPractice({ params }) {
 	switch (params) {
 		case "useState":
 			return (
@@ -158,6 +165,12 @@ export function CreateContentHookPractice({ params: params }) {
 			return (
 				<>
 					<UseParamsPractice />
+				</>
+			);
+		default:
+			return (
+				<>
+					<ErrorContent />
 				</>
 			);
 	}
