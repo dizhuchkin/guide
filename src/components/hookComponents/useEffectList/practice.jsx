@@ -1,5 +1,5 @@
 import Typography from "antd/es/typography/Typography";
-import { Button, InputNumber, Flex } from "antd";
+import { Button, InputNumber, Flex, Timeline } from "antd";
 import { useState, useEffect } from "react";
 
 const codeStyle = {
@@ -14,6 +14,7 @@ const codeStyle = {
 
 export default function UseEffectPractice() {
 	const [count, setCount] = useState(0);
+	const [log, setLog] = useState([]);
 
 	function click() {
 		setCount((value) => {
@@ -21,17 +22,23 @@ export default function UseEffectPractice() {
 		});
 	}
 
+	function addLog(text) {
+		setLog((value) => {
+			return [...value, { children: text }];
+		});
+	}
+
 	// Срабатывает при первом рендере
 	useEffect(() => {
-		console.log("Срабатывает один раз при первом рендере ");
+		addLog("Срабатывает один раз при первом рендере ");
 	}, []);
 
 	// Зависит от элементов
 	useEffect(() => {
-		console.log(`Запуск эффекта ${count}`);
+		addLog(`Запуск эффекта ${count}`);
 
 		return () => {
-			console.log(`Очистка эффекта ${count}`);
+			addLog(`Очистка эффекта ${count}`);
 		};
 	}, [count]);
 
@@ -52,6 +59,9 @@ export default function UseEffectPractice() {
 					Count++
 				</Button>
 			</Flex>
+			<Typography.Title level={3}>Вывод</Typography.Title>
+			<br />
+			<Timeline items={log} />
 			<Typography.Title level={3}>Код</Typography.Title>
 
 			<pre style={codeStyle}>{`

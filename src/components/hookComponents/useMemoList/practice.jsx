@@ -1,4 +1,4 @@
-import { Button, InputNumber, Flex } from "antd";
+import { Button, InputNumber, Flex, Timeline } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState, useMemo, useEffect } from "react";
 
@@ -18,18 +18,28 @@ const codeStyle = {
 };
 
 function factorialOf(n) {
-	console.log("factorialOf(n) called!");
 	return n <= 0 ? 1 : n * factorialOf(n - 1);
 }
 
 export default function UseMemoPractice() {
 	const [number, setNumber] = useState(2);
-	const factorial = useMemo(() => factorialOf(number), [number]);
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(2);
+	const [log, setLog] = useState([]);
+
+	function addLog(text) {
+		setLog((value) => {
+			return [...value, { children: text }];
+		});
+	}
 
 	useEffect(() => {
-		console.log("Render");
-	});
+		addLog("Render");
+	}, [count]);
+
+	const factorial = useMemo(() => {
+		addLog("factorialOf(n) called!");
+		return factorialOf(number);
+	}, [number]);
 
 	return (
 		<>
@@ -57,10 +67,10 @@ export default function UseMemoPractice() {
 				/>
 				<Button
 					style={buttonStyle}
-					onClick={() => setNumber(number + 1)}
+					onClick={() => setNumber(count)}
 					type="primary"
 				>
-					Number++
+					Count!
 				</Button>
 				<Button
 					style={buttonStyle}
@@ -70,6 +80,9 @@ export default function UseMemoPractice() {
 					Count++
 				</Button>
 			</Flex>
+			<Typography.Title level={3}>Вывод</Typography.Title>
+			<br />
+			<Timeline items={log} />
 			<Typography.Title level={3}>Код</Typography.Title>
 
 			<pre style={codeStyle}>{`

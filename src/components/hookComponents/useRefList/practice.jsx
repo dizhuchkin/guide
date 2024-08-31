@@ -1,4 +1,4 @@
-import { Button, Divider, InputNumber, Flex } from "antd";
+import { Button, Divider, InputNumber, Flex, Timeline } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState, useRef, useEffect } from "react";
 
@@ -13,20 +13,22 @@ const codeStyle = {
 };
 
 export default function UseRefPractice() {
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const obj1 = { hi: 100 };
-	const obj2 = useRef({ hi: 100 });
+	const [obj1, setObj1] = useState(1);
+	const obj2 = useRef(1);
+	const [log, setLog] = useState([]);
 
-	const [state, setState] = useState(() => {
-		return 1;
-	});
+	function addLog(text) {
+		setLog((value) => {
+			return [...value, { children: text }];
+		});
+	}
 
 	useEffect(() => {
-		console.log("obj1 changed | ", obj1);
+		addLog("useState obj1 changed | ", obj1);
 	}, [obj1]);
 
 	useEffect(() => {
-		console.log("obj2 changed | ", obj2.current);
+		addLog("useRef obj2 changed | ", obj2.current);
 	}, [obj2]);
 
 	const inputEl = useRef(null);
@@ -34,7 +36,7 @@ export default function UseRefPractice() {
 	return (
 		<>
 			<Typography.Title level={3}>
-				Пример (useEffect и useRefs)
+				Пример (useState и useRefs)
 			</Typography.Title>
 			<Flex
 				style={{ width: 200, margin: "auto" }}
@@ -42,21 +44,33 @@ export default function UseRefPractice() {
 				vertical
 			>
 				<InputNumber
-					value={state}
+					suffix="useState"
+					value={obj1}
 					disabled
-					style={{ marginBottom: 10 }}
+					style={{ marginBottom: 10, width: 200 }}
+				/>
+				<InputNumber
+					suffix="useRef"
+					value={obj2.current}
+					disabled
+					style={{ marginBottom: 10, width: 200 }}
 				/>
 				<Button
 					onClick={() => {
-						setState((value) => {
+						setObj1((value) => {
 							return value + 1;
 						});
+
+						obj2.current += 1;
 					}}
 					type="primary"
 				>
 					Count++
 				</Button>
 			</Flex>
+			<Typography.Title level={3}>Вывод</Typography.Title>
+			<br />
+			<Timeline items={log} />
 			<Divider />
 			<Typography.Title level={3}>
 				Пример (Обычный случай использования)
@@ -66,11 +80,7 @@ export default function UseRefPractice() {
 				align="center"
 				vertical
 			>
-				<InputNumber
-					ref={inputEl}
-					value={state}
-					style={{ marginBottom: 10 }}
-				/>
+				<InputNumber ref={inputEl} style={{ marginBottom: 10 }} />
 				<Button
 					onClick={() => {
 						// `current` указывает на смонтированный элемент `input`
@@ -86,12 +96,8 @@ export default function UseRefPractice() {
 			<Typography.Title level={3}>Код</Typography.Title>
 
 			<pre style={codeStyle}>{`
-const obj1 = { hi: 100 };
-const obj2 = useRef({ hi: 100 });
-
-const [state, setState] = useState(() => {
-	return 1;
-});
+const [obj1, setObj1] = useState(1);
+const obj2 = useRef(1);
 
 useEffect(() => {
 	console.log("obj1 changed | ", obj1);
@@ -105,17 +111,30 @@ const inputEl = useRef(null);
 
 <---------------------------------------------------->
 
+<InputNumber
+	value={obj1}
+	disabled
+	style={{ marginBottom: 10 }}
+/>
+<InputNumber
+	value={obj2.current}
+	disabled
+	style={{ marginBottom: 10 }}
+/>
 <Button
 	onClick={() => {
-		setState((value) => {
+		setObj1((value) => {
 			return value + 1;
 		});
+
+		obj2.current += 1;
 	}}
 	type="primary"
 >
 	Count++
 </Button>
 
+<InputNumber ref={inputEl} style={{ marginBottom: 10 }} />
 <Button
 	onClick={() => {
 		// current указывает на смонтированный элемент input
