@@ -91,7 +91,9 @@ const [count, dispatch] = useReducer(reducer, initialState);
 // функция редюсера принимает в себя 2 параметра
 // текущее состояние и экшен, и возвращает новое состояние
 // reducer(currentState, action);
-------------------------------------------------------
+
+<---------------------------------------------------->
+
 <Button
 	style={buttonStyle}
 	onClick={() => dispatch("increment")}

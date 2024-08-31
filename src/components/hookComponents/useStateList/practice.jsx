@@ -47,7 +47,11 @@ function click() {
 		return value + 1;
 	});
 }
-------------------------------------
+
+<---------------------------------------------------->
+
+<InputNumber value={count}/>
+
 <Button onClick={click} type="primary">
 	Count++
 </Button>

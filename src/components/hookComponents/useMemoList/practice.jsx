@@ -86,7 +86,8 @@ useEffect(() => {
 	console.log("Render");
 });
 
-------------------------------------
+<---------------------------------------------------->
+
 <Button
 	style={buttonStyle}
 	onClick={() => setNumber(number + 1)}

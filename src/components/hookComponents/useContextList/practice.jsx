@@ -70,7 +70,9 @@ const [data, setData] = useState({
 	email: "someMail@gmail.com",
 	count: 0,
 });
-----------------------------------------------------------------------
+
+<---------------------------------------------------->
+
 const Child = () => {
 	const value = useContext(StoreContext1);
 	return (
@@ -88,7 +90,9 @@ const Child = () => {
 		</>
 	);
 };
-----------------------------------------------------------------------
+
+<---------------------------------------------------->
+
 <StoreContext1.Provider value={data}>
 	<Child />
 </StoreContext1.Provider>

@@ -93,11 +93,12 @@ export default function UseParamsPractice() {
 			<Typography.Title level={3}>Код</Typography.Title>
 
 			<pre style={codeStyle}>{`
+const { idUser, idPost } = useParams();
 function onFinish(values) {
 	navigate('/${"values.userid"}/${"values.postid"}');
 }
-----------------------------
-const { idUser, idPost } = useParams();
+
+<---------------------------------------------------->
 
 <InputNumber
 	disabled

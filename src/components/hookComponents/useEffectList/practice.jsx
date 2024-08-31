@@ -23,15 +23,15 @@ export default function UseEffectPractice() {
 
 	// Срабатывает при первом рендере
 	useEffect(() => {
-		console.log("first render");
+		console.log("Срабатывает один раз при первом рендере ");
 	}, []);
 
 	// Зависит от элементов
 	useEffect(() => {
-		console.log(`Запуск эффекта`);
+		console.log(`Запуск эффекта ${count}`);
 
 		return () => {
-			console.log(`Очистка эффекта`);
+			console.log(`Очистка эффекта ${count}`);
 		};
 	}, [count]);
 
@@ -55,21 +55,30 @@ export default function UseEffectPractice() {
 			<Typography.Title level={3}>Код</Typography.Title>
 
 			<pre style={codeStyle}>{`
-// Срабатывает при первом рендере
 const [count, setCount] = useState(0);
 
+// Срабатывает при первом рендере
 useEffect(() => {
-	console.log("first render");
+	console.log("Срабатывает при первом рендере");
 }, []);
 
 // Зависит от элементов
 useEffect(() => {
+
 	console.log('Запуск эффекта');
 
 	return () => {
-		console.log('Очистка эффекта');
+		console.log(Очистка эффекта);
 	};
 }, [count]);
+
+<---------------------------------------------------->
+
+<InputNumber value={count}/>
+
+<Button onClick={click} type="primary">
+	Count++
+</Button>
 	`}</pre>
 		</>
 	);

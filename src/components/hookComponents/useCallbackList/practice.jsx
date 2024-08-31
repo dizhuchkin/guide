@@ -88,9 +88,11 @@ const handleClickB = useCallback(() => {
 	console.log('Clicked B with state2: ${"state2"}');
 	setState2(state2 + 1);
 }, [state2]);
-------------------------------------
+
+<---------------------------------------------------->
+
 <ChildA state1={state1} handleClickA={handleClickA} />
-<br />
+
 <ChildB state2={state2} handleClickB={handleClickB} />
 	`}</pre>
 		</>

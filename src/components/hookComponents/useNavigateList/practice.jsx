@@ -33,7 +33,9 @@ const navigate = useNavigate();
 const goToAboutPage = () => {
 	navigate("/hook/useState");
 };
-------------------------------------
+
+<---------------------------------------------------->
+
 <Button onClick={goToAboutPage} type="primary">
 	Переход к странице About
 </Button>
