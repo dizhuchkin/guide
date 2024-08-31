@@ -19,7 +19,10 @@ export default function UseRefPractice() {
 
 	function addLog(text) {
 		setLog((value) => {
-			return [...value, { children: text }];
+			return [
+				...value,
+				{ label: new Date().toLocaleTimeString(), children: text },
+			];
 		});
 	}
 
@@ -70,7 +73,7 @@ export default function UseRefPractice() {
 			</Flex>
 			<Typography.Title level={3}>Вывод</Typography.Title>
 			<br />
-			<Timeline items={log} />
+			<Timeline mode="left" items={log} />
 			<Divider />
 			<Typography.Title level={3}>
 				Пример (Обычный случай использования)

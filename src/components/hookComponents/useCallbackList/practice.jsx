@@ -50,7 +50,10 @@ export default function UseCallbackPractice() {
 
 	const addLog = useCallback((text) => {
 		setLog((value) => {
-			return [...value, { children: text }];
+			return [
+				...value,
+				{ label: new Date().toLocaleTimeString(), children: text },
+			];
 		});
 	}, []);
 
@@ -93,7 +96,7 @@ export default function UseCallbackPractice() {
 			</Typography.Paragraph>
 			<Typography.Title level={3}>Вывод</Typography.Title>
 			<br />
-			<Timeline items={log} />
+			<Timeline mode="left" items={log} />
 			<Typography.Title level={3}>Код</Typography.Title>
 
 			<pre style={codeStyle}>{`

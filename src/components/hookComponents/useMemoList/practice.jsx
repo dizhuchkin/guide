@@ -28,7 +28,10 @@ export default function UseMemoPractice() {
 
 	function addLog(text) {
 		setLog((value) => {
-			return [...value, { children: text }];
+			return [
+				...value,
+				{ label: new Date().toLocaleTimeString(), children: text },
+			];
 		});
 	}
 
@@ -82,7 +85,7 @@ export default function UseMemoPractice() {
 			</Flex>
 			<Typography.Title level={3}>Вывод</Typography.Title>
 			<br />
-			<Timeline items={log} />
+			<Timeline mode="left" items={log} />
 			<Typography.Title level={3}>Код</Typography.Title>
 
 			<pre style={codeStyle}>{`
