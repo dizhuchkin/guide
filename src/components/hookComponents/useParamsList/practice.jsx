@@ -1,5 +1,4 @@
-import { Button, Form, Input, theme } from "antd";
-import Typography from "antd/es/typography/Typography";
+import { Button, Form, Input, theme, Space, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const codeStyle = {
@@ -36,63 +35,66 @@ export default function UseParamsPractice() {
     wrapperCol: определяет, насколько широкой будет колонка, содержащая элементы ввода (обёртка, wrapper). Параметр span указывает количество колонок, которые будет занимать обёртка в сетке, состоящей из 24 колонок.*/
 
 	return (
-		<>
-			<Typography.Title level={3}>
-				Пример (/:userid/:postid)
-			</Typography.Title>
-			<Form
-				style={formStyle}
-				name="basic"
-				labelCol={{
-					span: 6,
-				}}
-				wrapperCol={{
-					span: 18,
-				}}
-				initialValues={{
-					remember: true,
-				}}
-				onFinish={onFinish}
-			>
-				<Form.Item
-					style={{ display: "flex", justifyContent: "center" }}
-					label="UserId"
-					name="userid"
-					rules={[
-						{
-							required: true,
-							message: "Please input userid!",
-						},
-					]}
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример (/:userid/:postid)">
+				<Form
+					style={formStyle}
+					name="basic"
+					labelCol={{
+						span: 6,
+					}}
+					wrapperCol={{
+						span: 18,
+					}}
+					initialValues={{
+						remember: true,
+					}}
+					onFinish={onFinish}
 				>
-					<Input />
-				</Form.Item>
+					<Form.Item
+						style={{ display: "flex", justifyContent: "center" }}
+						label="UserId"
+						name="userid"
+						rules={[
+							{
+								required: true,
+								message: "Please input userid!",
+							},
+						]}
+					>
+						<Input />
+					</Form.Item>
 
-				<Form.Item
-					style={{ display: "flex", justifyContent: "center" }}
-					label="PostId"
-					name="postid"
-					rules={[
-						{
-							required: true,
-							message: "Please input postid!",
-						},
-					]}
-				>
-					<Input />
-				</Form.Item>
+					<Form.Item
+						style={{ display: "flex", justifyContent: "center" }}
+						label="PostId"
+						name="postid"
+						rules={[
+							{
+								required: true,
+								message: "Please input postid!",
+							},
+						]}
+					>
+						<Input />
+					</Form.Item>
 
-				<Form.Item
-					style={{ display: "flex", justifyContent: "center" }}
-				>
-					<Button type="primary" htmlType="submit">
-						Перейти
-					</Button>
-				</Form.Item>
-			</Form>
-			<Typography.Title level={3}>Код</Typography.Title>
+					<Form.Item
+						style={{ display: "flex", justifyContent: "center" }}
+					>
+						<Button type="primary" htmlType="submit">
+							Перейти
+						</Button>
+					</Form.Item>
+				</Form>
+			</Card>
 
-			<pre style={codeStyle}>{`
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 const { idUser, idPost } = useParams();
 function onFinish(values) {
 	navigate('/${"values.userid"}/${"values.postid"}');
@@ -111,6 +113,7 @@ function onFinish(values) {
 	style={{ width: "200px", marginRight: "20px" }}
 />
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

@@ -1,4 +1,4 @@
-import { Button, InputNumber, Flex, Timeline } from "antd";
+import { Button, InputNumber, Flex, Timeline, Space, Card } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState, useCallback, useEffect } from "react";
 import React from "react";
@@ -68,38 +68,52 @@ export default function UseCallbackPractice() {
 	}, [addLog, state2]);
 
 	return (
-		<>
-			<Typography.Title level={3}>Пример</Typography.Title>
-			<Flex
-				style={{ width: 200, margin: "auto" }}
-				align="center"
-				vertical
-			>
-				<ChildA
-					state1={state1}
-					handleClickA={handleClickA}
-					addLog={addLog}
-				/>
-				<br />
-				<ChildB
-					state2={state2}
-					handleClickB={handleClickB}
-					addLog={addLog}
-				/>
-			</Flex>
-			<Typography.Paragraph>
-				Без мемоизации функции, такие как handleClickA и handleClickB,
-				создаются заново при каждом рендере родительского компонента,
-				что может приводить к ненужным рендерам дочерних компонентов.
-				React.memo позволяет перерисовывать компонет только тогда, когда
-				изменяются props
-			</Typography.Paragraph>
-			<Typography.Title level={3}>Вывод</Typography.Title>
-			<br />
-			<Timeline mode="left" items={log} />
-			<Typography.Title level={3}>Код</Typography.Title>
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример">
+				<Flex
+					style={{ width: 200, margin: "auto" }}
+					align="center"
+					vertical
+				>
+					<ChildA
+						state1={state1}
+						handleClickA={handleClickA}
+						addLog={addLog}
+					/>
+					<br />
+					<ChildB
+						state2={state2}
+						handleClickB={handleClickB}
+						addLog={addLog}
+					/>
+				</Flex>
+				<Typography.Paragraph>
+					Без мемоизации функции, такие как handleClickA и
+					handleClickB, создаются заново при каждом рендере
+					родительского компонента, что может приводить к ненужным
+					рендерам дочерних компонентов. React.memo позволяет
+					перерисовывать компонет только тогда, когда изменяются props
+				</Typography.Paragraph>
+			</Card>
 
-			<pre style={codeStyle}>{`
+			<Card title="Вывод">
+				<Timeline
+					style={{
+						overflowX: "hidden",
+						height: 400,
+						overflowY: "scroll",
+					}}
+					mode="left"
+					items={log}
+				/>
+			</Card>
+
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 const handleClickA = useCallback(() => {
 	console.log('Clicked A with state1: ${"state1"}');
 	setState1(state1 + 1);
@@ -116,6 +130,7 @@ const handleClickB = useCallback(() => {
 
 <ChildB state2={state2} handleClickB={handleClickB} />
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

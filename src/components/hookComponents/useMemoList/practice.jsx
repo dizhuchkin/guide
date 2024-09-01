@@ -1,4 +1,4 @@
-import { Button, InputNumber, Flex, Timeline } from "antd";
+import { Button, InputNumber, Flex, Timeline, Space, Card } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState, useMemo, useEffect } from "react";
 
@@ -45,50 +45,63 @@ export default function UseMemoPractice() {
 	}, [number]);
 
 	return (
-		<>
-			<Typography.Title level={3}>Пример</Typography.Title>
-			<Typography.Paragraph>
-				Для примера, нам нужно найти факториал, и пересчитывать значение
-				только тогда, когда значение изменится, а не при каждой
-				перерисовке компонента, чтож давайте попробуем использовать
-				useMemo.
-			</Typography.Paragraph>
-			<Flex
-				style={{ width: 200, margin: "auto" }}
-				align="center"
-				vertical
-			>
-				<InputNumber
-					value={factorial}
-					disabled
-					style={{ marginBottom: 10 }}
-				/>
-				<InputNumber
-					value={count}
-					disabled
-					style={{ marginBottom: 10 }}
-				/>
-				<Button
-					style={buttonStyle}
-					onClick={() => setNumber(count)}
-					type="primary"
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример">
+				<Typography.Paragraph>
+					Для примера, нам нужно найти факториал, и пересчитывать
+					значение только тогда, когда значение изменится, а не при
+					каждой перерисовке компонента, чтож давайте попробуем
+					использовать useMemo.
+				</Typography.Paragraph>
+				<Flex
+					style={{ width: 200, margin: "auto" }}
+					align="center"
+					vertical
 				>
-					Count!
-				</Button>
-				<Button
-					style={buttonStyle}
-					onClick={() => setCount(count + 1)}
-					type="primary"
-				>
-					Count++
-				</Button>
-			</Flex>
-			<Typography.Title level={3}>Вывод</Typography.Title>
-			<br />
-			<Timeline mode="left" items={log} />
-			<Typography.Title level={3}>Код</Typography.Title>
+					<InputNumber
+						value={factorial}
+						disabled
+						style={{ marginBottom: 10 }}
+					/>
+					<InputNumber
+						value={count}
+						disabled
+						style={{ marginBottom: 10 }}
+					/>
+					<Button
+						style={buttonStyle}
+						onClick={() => setNumber(count)}
+						type="primary"
+					>
+						Count!
+					</Button>
+					<Button
+						style={buttonStyle}
+						onClick={() => setCount(count + 1)}
+						type="primary"
+					>
+						Count++
+					</Button>
+				</Flex>
+			</Card>
+			<Card title="Вывод">
+				<Timeline
+					style={{
+						overflowX: "hidden",
+						height: 400,
+						overflowY: "scroll",
+					}}
+					mode="left"
+					items={log}
+				/>
+			</Card>
 
-			<pre style={codeStyle}>{`
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 function factorialOf(n) {
 	console.log("factorialOf(n) called!");
 	return n <= 0 ? 1 : n * factorialOf(n - 1);
@@ -119,6 +132,7 @@ useEffect(() => {
 	Count++
 </Button>
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

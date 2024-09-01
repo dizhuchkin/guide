@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Space, Card } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { useState } from "react";
 import { createContext, useContext } from "react";
@@ -50,19 +50,23 @@ export default function UseContextPractice() {
 	};
 
 	return (
-		<>
-			<Typography.Title level={3}>Пример</Typography.Title>
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример">
+				<Button onClick={click} type="primary">
+					Count++
+				</Button>
 
-			<Button onClick={click} type="primary">
-				Count++
-			</Button>
+				<StoreContext1.Provider value={data}>
+					<Child />
+				</StoreContext1.Provider>
+			</Card>
 
-			<StoreContext1.Provider value={data}>
-				<Child />
-			</StoreContext1.Provider>
-			<Typography.Title level={3}>Код</Typography.Title>
-
-			<pre style={codeStyle}>{`
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 const StoreContext1 = createContext();
 
 const [data, setData] = useState({
@@ -97,6 +101,7 @@ const Child = () => {
 	<Child />
 </StoreContext1.Provider>
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

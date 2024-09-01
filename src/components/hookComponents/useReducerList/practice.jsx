@@ -1,5 +1,4 @@
-import { Button, InputNumber, Flex } from "antd";
-import Typography from "antd/es/typography/Typography";
+import { Button, InputNumber, Flex, Space, Card } from "antd";
 import { useReducer } from "react";
 
 const buttonStyle = {
@@ -39,38 +38,42 @@ export default function UseReducerPractice() {
 	// текущее состояние и экшен, и возвращает новое состояние
 	// reducer(currentState, action);
 	return (
-		<>
-			<Typography.Title level={3}>Пример</Typography.Title>
-
-			<Flex
-				style={{ width: 200, margin: "auto" }}
-				align="center"
-				vertical
-			>
-				<InputNumber
-					value={count}
-					disabled
-					style={{ marginBottom: 10 }}
-				/>
-				<Button
-					style={buttonStyle}
-					onClick={() => dispatch("increment")}
-					type="primary"
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример">
+				<Flex
+					style={{ width: 200, margin: "auto" }}
+					align="center"
+					vertical
 				>
-					Count++
-				</Button>
+					<InputNumber
+						value={count}
+						disabled
+						style={{ marginBottom: 10 }}
+					/>
+					<Button
+						style={buttonStyle}
+						onClick={() => dispatch("increment")}
+						type="primary"
+					>
+						Count++
+					</Button>
 
-				<Button
-					style={buttonStyle}
-					onClick={() => dispatch("decrement")}
-					type="primary"
-				>
-					Count--
-				</Button>
-			</Flex>
-			<Typography.Title level={3}>Код</Typography.Title>
+					<Button
+						style={buttonStyle}
+						onClick={() => dispatch("decrement")}
+						type="primary"
+					>
+						Count--
+					</Button>
+				</Flex>
+			</Card>
 
-			<pre style={codeStyle}>{`
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 //Пример с счётчиком
 const initialState = 0;
 const reducer = (state, action) => {
@@ -110,6 +113,7 @@ const [count, dispatch] = useReducer(reducer, initialState);
 	Count--
 </Button>
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

@@ -1,5 +1,4 @@
-import { Button, InputNumber, Flex } from "antd";
-import Typography from "antd/es/typography/Typography";
+import { Button, InputNumber, Flex, Card, Space } from "antd";
 import { useState } from "react";
 
 const codeStyle = {
@@ -22,25 +21,29 @@ export default function UseStatePractice() {
 	}
 
 	return (
-		<>
-			<Typography.Title level={3}>Пример (Счётчик)</Typography.Title>
-			<Flex
-				style={{ width: 200, margin: "auto" }}
-				align="center"
-				vertical
-			>
-				<InputNumber
-					value={count}
-					disabled
-					style={{ marginBottom: 10 }}
-				/>
-				<Button onClick={click} type="primary">
-					Count++
-				</Button>
-			</Flex>
-			<Typography.Title level={3}>Код</Typography.Title>
-
-			<pre style={codeStyle}>{`
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример (Счётчик)">
+				<Flex
+					style={{ width: 200, margin: "auto" }}
+					align="center"
+					vertical
+				>
+					<InputNumber
+						value={count}
+						disabled
+						style={{ marginBottom: 10 }}
+					/>
+					<Button onClick={click} type="primary">
+						Count++
+					</Button>
+				</Flex>
+			</Card>
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 const [count, setCount] = useState(0);
 function click() {
 	setCount((value) => {
@@ -56,6 +59,7 @@ function click() {
 	Count++
 </Button>
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

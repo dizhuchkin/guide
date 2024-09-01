@@ -1,5 +1,4 @@
-import { Button } from "antd";
-import Typography from "antd/es/typography/Typography";
+import { Button, Space, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const codeStyle = {
@@ -20,14 +19,19 @@ export default function UseNavigatePractice() {
 	};
 
 	return (
-		<>
-			<Typography.Title level={3}>Пример (/useState)</Typography.Title>
-			<Button onClick={goToAboutPage} type="primary">
-				Переход к странице useState
-			</Button>
-			<Typography.Title level={3}>Код</Typography.Title>
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример (переход к useState)">
+				<Button onClick={goToAboutPage} type="primary">
+					Переход к странице useState
+				</Button>
+			</Card>
 
-			<pre style={codeStyle}>{`
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 const navigate = useNavigate();
 
 const goToAboutPage = () => {
@@ -37,9 +41,10 @@ const goToAboutPage = () => {
 <---------------------------------------------------->
 
 <Button onClick={goToAboutPage} type="primary">
-	Переход к странице About
+	Переход к странице useState
 </Button>
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

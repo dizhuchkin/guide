@@ -1,5 +1,4 @@
-import { List } from "antd";
-import Typography from "antd/es/typography/Typography";
+import { List, Space, Card } from "antd";
 import { useLocation } from "react-router-dom";
 
 const codeStyle = {
@@ -37,27 +36,30 @@ export default function UseLocationPractice() {
 		},
 	];
 	return (
-		<>
-			<Typography.Title level={3}>
-				Пример (useLocation данной страницы)
-			</Typography.Title>
-			<List
-				size="small"
-				bordered
-				title="Заголовок"
-				dataSource={infoLocation}
-				renderItem={(item) => (
-					<List.Item>
-						<List.Item.Meta
-							title={item.title}
-							description={item.content}
-						/>
-					</List.Item>
-				)}
-			/>
-			<Typography.Title level={3}>Код</Typography.Title>
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример (информация о данной странице)">
+				<List
+					size="small"
+					bordered
+					title="Заголовок"
+					dataSource={infoLocation}
+					renderItem={(item) => (
+						<List.Item>
+							<List.Item.Meta
+								title={item.title}
+								description={item.content}
+							/>
+						</List.Item>
+					)}
+				/>
+			</Card>
 
-			<pre style={codeStyle}>{`
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 const loc = useLocation();
 const infoLocation = [
 	{
@@ -99,6 +101,7 @@ const infoLocation = [
 	)}
 />
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }

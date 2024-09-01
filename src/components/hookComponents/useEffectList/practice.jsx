@@ -1,5 +1,4 @@
-import Typography from "antd/es/typography/Typography";
-import { Button, InputNumber, Flex, Timeline } from "antd";
+import { Button, InputNumber, Flex, Timeline, Space, Card } from "antd";
 import { useState, useEffect } from "react";
 
 const codeStyle = {
@@ -46,28 +45,42 @@ export default function UseEffectPractice() {
 	}, [count]);
 
 	return (
-		<>
-			<Typography.Title level={3}>Пример</Typography.Title>
-			<Flex
-				style={{ width: 200, margin: "auto" }}
-				align="center"
-				vertical
-			>
-				<InputNumber
-					value={count}
-					disabled
-					style={{ marginBottom: 10 }}
-				/>
-				<Button onClick={click} type="primary">
-					Count++
-				</Button>
-			</Flex>
-			<Typography.Title level={3}>Вывод</Typography.Title>
-			<br />
-			<Timeline mode="left" items={log} />
-			<Typography.Title level={3}>Код</Typography.Title>
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Пример">
+				<Flex
+					style={{ width: 200, margin: "auto" }}
+					align="center"
+					vertical
+				>
+					<InputNumber
+						value={count}
+						disabled
+						style={{ marginBottom: 10 }}
+					/>
+					<Button onClick={click} type="primary">
+						Count++
+					</Button>
+				</Flex>
+			</Card>
 
-			<pre style={codeStyle}>{`
+			<Card title="Вывод">
+				<Timeline
+					style={{
+						overflowX: "hidden",
+						height: 400,
+						overflowY: "scroll",
+					}}
+					mode="left"
+					items={log}
+				/>
+			</Card>
+
+			<Card title="Код">
+				<pre style={codeStyle}>{`
 const [count, setCount] = useState(0);
 
 // Срабатывает при первом рендере
@@ -93,6 +106,7 @@ useEffect(() => {
 	Count++
 </Button>
 	`}</pre>
-		</>
+			</Card>
+		</Space>
 	);
 }
