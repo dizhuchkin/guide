@@ -14,10 +14,16 @@ export default function DataMain() {
 			description: (
 				<Flex wrap gap="small">
 					{listTopic
-						.filter((item) => item.key < 12)
+						.filter((item) => item.key <= 12)
 						.map((i) => (
 							<Button
-								onClick={() => navigate(`/hook/${i.label}`)}
+								onClick={() =>
+									navigate(
+										`${i.key !== 12 ? "/hook/" : "/dop/"}${
+											i.label
+										}`
+									)
+								}
 								key={i.key}
 								type="primary"
 							>
@@ -63,7 +69,7 @@ export default function DataMain() {
 			description: (
 				<Flex wrap gap="small">
 					{listTopic
-						.filter((item) => item.key >= 12 && item.key < 16)
+						.filter((item) => item.key >= 13 && item.key < 16)
 						.map((i) => (
 							<Button
 								onClick={() => navigate(`/dop/${i.label}`)}

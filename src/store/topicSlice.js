@@ -61,18 +61,18 @@ const topicSlice = createSlice({
 			},
 			{
 				key: 12,
+				label: "other",
+				name: "Дополнительные хуки",
+			},
+			{
+				key: 13,
 				label: "practices",
 				name: "Полезные практики React",
 			},
 			{
-				key: 13,
+				key: 14,
 				label: "libraries",
 				name: "Дополнительные библиотеки и фреймворки",
-			},
-			{
-				key: 14,
-				label: "hooks",
-				name: "Дополнительные хуки",
 			},
 			{
 				key: 16,

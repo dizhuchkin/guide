@@ -138,7 +138,7 @@ export default function createContentDop(params) {
 			case "libraries":
 				data.content = creatLibrariesList();
 				break;
-			case "hooks":
+			case "other":
 				data.content = createCustomHooksList();
 				break;
 			default:
