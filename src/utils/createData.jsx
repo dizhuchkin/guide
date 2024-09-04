@@ -27,24 +27,7 @@ export default function DataMain() {
 				</Flex>
 			),
 		},
-		{
-			title: "Дополнительно",
-			description: (
-				<Flex wrap gap="small">
-					{listTopic
-						.filter((item) => item.key >= 12 && item.key < 16)
-						.map((i) => (
-							<Button
-								onClick={() => navigate(`/dop/${i.label}`)}
-								key={i.key}
-								type="primary"
-							>
-								{i.label}
-							</Button>
-						))}
-				</Flex>
-			),
-		},
+
 		{
 			title: "Вопросы",
 			description: (
@@ -72,6 +55,24 @@ export default function DataMain() {
 							<Image preview={false} src={i.icon} />
 						</Link>
 					))}
+				</Flex>
+			),
+		},
+		{
+			title: "Дополнительно",
+			description: (
+				<Flex wrap gap="small">
+					{listTopic
+						.filter((item) => item.key >= 12 && item.key < 16)
+						.map((i) => (
+							<Button
+								onClick={() => navigate(`/dop/${i.label}`)}
+								key={i.key}
+								type="primary"
+							>
+								{i.label}
+							</Button>
+						))}
 				</Flex>
 			),
 		},

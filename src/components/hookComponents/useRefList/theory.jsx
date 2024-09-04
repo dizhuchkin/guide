@@ -1,4 +1,4 @@
-import { Button, Divider, List } from "antd";
+import { Button, List, Space, Card } from "antd";
 import Link from "antd/es/typography/Link";
 import Typography from "antd/es/typography/Typography";
 
@@ -29,57 +29,63 @@ const use = [
 
 export default function UseRefTheory() {
 	return (
-		<>
-			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph style={{ textAlign: "left" }}>
-				Хук <Text code>useRef()</Text> возвращает объект, свойство
-				current которого содержит ссылку на узел DOM. Данный хук также
-				может использоваться для сохранения любого мутирующего значения.
-				Создание хука: <Text code>const node = useRef()</Text>.
-				Добавление ссылки:{" "}
-				<Text code>{`<tagName ref={node}></tagName>`}</Text>.
-			</Typography.Paragraph>
-			<List
-				size="small"
-				bordered
-				title="Заголовок"
-				dataSource={data}
-				renderItem={(item) => (
-					<List.Item>
-						<List.Item.Meta
-							title={item.title}
-							description={item.content}
-						/>
-					</List.Item>
-				)}
-			/>
-			<br />
-			<Typography.Paragraph style={{ textAlign: "left" }}>
-				useRef возвращает изменяемый ref объект, в котором значение
-				“current” устанавливается переданным аргументом при
-				инициализации (initialValue). Возвращенный объект будет сохранен
-				на протяжении всей жизни компонента.
-			</Typography.Paragraph>
-			<Typography.Paragraph style={{ textAlign: "left" }}>
-				Когда вы сравнивает обычный объект с самим собой в useEffect, то
-				после перерисовки они не совпадают, и это запускает срабатывание
-				useEffect, с useRef такого не происходит (если он не изменился,
-				то не перерисовывается)
-			</Typography.Paragraph>
-			<Link
-				target="_blanks"
-				href="https://my-js.org/docs/cheatsheet/react-hooks/#useref"
-			>
-				<Button type="primary">Дополнительно</Button>
-			</Link>
-			<Divider />
-			<Typography.Title level={3}>Когда использовать</Typography.Title>
-			<List
-				size="small"
-				bordered
-				dataSource={use}
-				renderItem={(item) => <List.Item>{item}</List.Item>}
-			/>
-		</>
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Теория">
+				<Typography.Paragraph style={{ textAlign: "left" }}>
+					Хук <Text code>useRef()</Text> возвращает объект, свойство
+					current которого содержит ссылку на узел DOM. Данный хук
+					также может использоваться для сохранения любого мутирующего
+					значения. Создание хука:{" "}
+					<Text code>const node = useRef()</Text>. Добавление ссылки:{" "}
+					<Text code>{`<tagName ref={node}></tagName>`}</Text>.
+				</Typography.Paragraph>
+				<List
+					size="small"
+					bordered
+					title="Заголовок"
+					dataSource={data}
+					renderItem={(item) => (
+						<List.Item>
+							<List.Item.Meta
+								title={item.title}
+								description={item.content}
+							/>
+						</List.Item>
+					)}
+				/>
+				<br />
+				<Typography.Paragraph style={{ textAlign: "left" }}>
+					useRef возвращает изменяемый ref объект, в котором значение
+					“current” устанавливается переданным аргументом при
+					инициализации (initialValue). Возвращенный объект будет
+					сохранен на протяжении всей жизни компонента.
+				</Typography.Paragraph>
+				<Typography.Paragraph style={{ textAlign: "left" }}>
+					Когда вы сравнивает обычный объект с самим собой в
+					useEffect, то после перерисовки они не совпадают, и это
+					запускает срабатывание useEffect, с useRef такого не
+					происходит (если он не изменился, то не перерисовывается)
+				</Typography.Paragraph>
+				<Link
+					target="_blanks"
+					href="https://my-js.org/docs/cheatsheet/react-hooks/#useref"
+				>
+					<Button type="primary">Дополнительно</Button>
+				</Link>
+			</Card>
+
+			<Card title="Когда использовать">
+				<List
+					size="small"
+					bordered
+					dataSource={use}
+					renderItem={(item) => <List.Item>{item}</List.Item>}
+				/>
+			</Card>
+		</Space>
 	);
 }

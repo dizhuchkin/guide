@@ -46,6 +46,12 @@ export default function AppHeader() {
 				</Link>
 				<Link
 					target="_blank"
+					href="https://my-js.netlify.app/docs/other/snippets-js/"
+				>
+					<p>Сниппеты JS</p>
+				</Link>
+				<Link
+					target="_blank"
 					href="https://race-timo.gitbook.io/typescript"
 				>
 					<p>Справочник TS</p>

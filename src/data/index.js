@@ -2,7 +2,6 @@ import codewars from "./photo/codewars48.png";
 import stepic from "./photo/stepic48.png";
 import yandex from "./photo/yandex48.png";
 import html from "./photo/html48.png";
-import js from "./photo/js48.png";
 import solvit from "./photo/solvit48.png";
 import devStation from "./photo/devStation48.png";
 
@@ -2745,16 +2744,11 @@ export const linksData = [
 	},
 	{
 		key: 5,
-		link: "https://my-js.netlify.app/docs/other/snippets-js/",
-		icon: js,
-	},
-	{
-		key: 6,
 		link: "https://solvit.space/",
 		icon: solvit,
 	},
 	{
-		key: 7,
+		key: 6,
 		link: "https://dev-station.ru/simulator/js",
 		icon: devStation,
 	},

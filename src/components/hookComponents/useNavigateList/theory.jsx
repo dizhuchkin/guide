@@ -1,4 +1,4 @@
-import { Divider, List, Button } from "antd";
+import { List, Button, Space, Card } from "antd";
 import Typography from "antd/es/typography/Typography";
 import Link from "antd/es/typography/Link";
 
@@ -47,23 +47,45 @@ const use = [
 
 export default function UseNavigateTheory() {
 	return (
-		<>
-			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph style={{ textAlign: "left" }}>
-				<Text code>useNavigate</Text> используется для программной
-				навигации между страницами в вашем приложении. Он возвращает
-				функцию, которая позволяет вам перемещаться к другим маршрутам,
-				подобно вызову history push или history.replace в старых версиях
-				React Router.
-				<Typography.Title level={5}>
-					Функция, возвращаемая useNavigate, может принимать два
-					аргумента:
-				</Typography.Title>
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Теория">
+				<Typography.Paragraph style={{ textAlign: "left" }}>
+					<Text code>useNavigate</Text> используется для программной
+					навигации между страницами в вашем приложении. Он возвращает
+					функцию, которая позволяет вам перемещаться к другим
+					маршрутам, подобно вызову history push или history.replace в
+					старых версиях React Router.
+					<Typography.Title level={5}>
+						Функция, возвращаемая useNavigate, может принимать два
+						аргумента:
+					</Typography.Title>
+					<List
+						size="small"
+						bordered
+						title="Заголовок"
+						dataSource={data}
+						renderItem={(item) => (
+							<List.Item>
+								<List.Item.Meta
+									title={item.title}
+									description={item.content}
+								/>
+							</List.Item>
+						)}
+					/>
+					<Typography.Title level={5}>
+						Примеры использования useNavigate:
+					</Typography.Title>
+				</Typography.Paragraph>
 				<List
 					size="small"
 					bordered
 					title="Заголовок"
-					dataSource={data}
+					dataSource={examples}
 					renderItem={(item) => (
 						<List.Item>
 							<List.Item.Meta
@@ -73,39 +95,23 @@ export default function UseNavigateTheory() {
 						</List.Item>
 					)}
 				/>
-				<Typography.Title level={5}>
-					Примеры использования useNavigate:
-				</Typography.Title>
-			</Typography.Paragraph>
-			<List
-				size="small"
-				bordered
-				title="Заголовок"
-				dataSource={examples}
-				renderItem={(item) => (
-					<List.Item>
-						<List.Item.Meta
-							title={item.title}
-							description={item.content}
-						/>
-					</List.Item>
-				)}
-			/>
-			<br />
-			<Link
-				target="_blanks"
-				href="https://ru.hexlet.io/blog/posts/react-router-v6"
-			>
-				<Button type="primary">Дополнительно</Button>
-			</Link>
-			<Divider />
-			<Typography.Title level={3}>Когда использовать</Typography.Title>
-			<List
-				size="small"
-				bordered
-				dataSource={use}
-				renderItem={(item) => <List.Item>{item}</List.Item>}
-			/>
-		</>
+				<br />
+				<Link
+					target="_blanks"
+					href="https://ru.hexlet.io/blog/posts/react-router-v6"
+				>
+					<Button type="primary">Дополнительно</Button>
+				</Link>
+			</Card>
+
+			<Card title="Когда использовать">
+				<List
+					size="small"
+					bordered
+					dataSource={use}
+					renderItem={(item) => <List.Item>{item}</List.Item>}
+				/>
+			</Card>
+		</Space>
 	);
 }

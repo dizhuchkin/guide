@@ -1,4 +1,4 @@
-import { Button, Divider, List } from "antd";
+import { Button, List, Space, Card } from "antd";
 import Link from "antd/es/typography/Link";
 import Typography from "antd/es/typography/Typography";
 
@@ -42,47 +42,53 @@ const use = [
 
 export default function UseLocationTheory() {
 	return (
-		<>
-			<Typography.Title level={3}>Теория</Typography.Title>
-			<Typography.Paragraph style={{ textAlign: "left" }}>
-				<Text code>useLocation</Text> возвращает объект, представляющий
-				текущий URL. Этот объект содержит информацию о текущем пути,
-				строке запроса и других свойствах. Хук useLocation возвращает
-				объект location, который содержит свойства pathname, search,
-				hash, state и другие, предоставляющие информацию о текущем
-				маршруте.
+		<Space
+			direction="vertical"
+			size="middle"
+			style={{ display: "flex", marginTop: 10 }}
+		>
+			<Card title="Теория">
+				<Typography.Paragraph style={{ textAlign: "left" }}>
+					<Text code>useLocation</Text> возвращает объект,
+					представляющий текущий URL. Этот объект содержит информацию
+					о текущем пути, строке запроса и других свойствах. Хук
+					useLocation возвращает объект location, который содержит
+					свойства pathname, search, hash, state и другие,
+					предоставляющие информацию о текущем маршруте.
+					<br />
+					Свойства объекта location pathname:
+				</Typography.Paragraph>
+				<List
+					size="small"
+					bordered
+					title="Заголовок"
+					dataSource={data}
+					renderItem={(item) => (
+						<List.Item>
+							<List.Item.Meta
+								title={item.title}
+								description={item.content}
+							/>
+						</List.Item>
+					)}
+				/>
 				<br />
-				Свойства объекта location pathname:
-			</Typography.Paragraph>
-			<List
-				size="small"
-				bordered
-				title="Заголовок"
-				dataSource={data}
-				renderItem={(item) => (
-					<List.Item>
-						<List.Item.Meta
-							title={item.title}
-							description={item.content}
-						/>
-					</List.Item>
-				)}
-			/>
-			<br />
-			<Link
-				target="_blanks"
-				href="https://my-js.org/docs/guide/react-router/#uselocation"
-			>
-				<Button type="primary">Дополнительно</Button>
-			</Link>
-			<Divider />
-			<Typography.Title level={3}>Когда использовать</Typography.Title>
-			<List
-				size="small"
-				bordered
-				dataSource={use}
-				renderItem={(item) => <List.Item>{item}</List.Item>}
-			/>
-		</>
+				<Link
+					target="_blanks"
+					href="https://my-js.org/docs/guide/react-router/#uselocation"
+				>
+					<Button type="primary">Дополнительно</Button>
+				</Link>
+			</Card>
+
+			<Card title="Когда использовать">
+				<List
+					size="small"
+					bordered
+					dataSource={use}
+					renderItem={(item) => <List.Item>{item}</List.Item>}
+				/>
+			</Card>
+		</Space>
 	);
 }
