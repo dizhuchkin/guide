@@ -741,7 +741,7 @@ return (
 	},
 	{
 		key: "26",
-		label: "seGeolocation",
+		label: "useError",
 		description: [
 			{
 				type: "text",
